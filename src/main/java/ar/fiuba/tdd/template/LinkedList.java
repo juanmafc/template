@@ -5,7 +5,9 @@ package ar.fiuba.tdd.template;
  */
 public interface LinkedList<T> {
     int size();
+
     void add(T item);
+
     T getFirst();
 
     boolean isEmpty();
