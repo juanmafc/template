@@ -19,20 +19,20 @@ public class QueueTests {
 
 
     @Test
-    public void TestQueueIsEmptyWhenCreated() {
+    public void testQueueIsEmptyWhenCreated() {
         Queue<String> queue = new OneLineQueue<>();
         assertTrue(queue.isEmpty());
     }
 
     @Test
-    public void TestEmptyQueueSizeIsZero(){
+    public void testEmptyQueueSizeIsZero() {
         Queue<String> queue = new OneLineQueue<>();
         assertTrue(queue.isEmpty());
         assertEquals(0, queue.size());
     }
 
     @Test
-    public void testAddingOneItemToAnEmptyQueueIncreasesItsSizeToOne(){
+    public void testAddingOneItemToAnEmptyQueueIncreasesItsSizeToOne() {
         Queue<String> queue = new OneLineQueue<>();
         queue.add("queue item1");
         assertFalse(queue.isEmpty());
@@ -40,10 +40,10 @@ public class QueueTests {
     }
 
     @Test
-    public void testEachItemAddedToAQueueIncressesItsSizeByOne(){
+    public void testEachItemAddedToAQueueIncressesItsSizeByOne() {
         Queue<String> queue = new OneLineQueue<>();
         int numberOfItems = 5;
-        for (int i = 1; i <= numberOfItems; i++ ){
+        for (int i = 1; i <= numberOfItems; i++ ) {
             queue.add(Integer.toString(i));
         }
         assertEquals(5, queue.size());
@@ -51,7 +51,7 @@ public class QueueTests {
     }
 
     @Test
-    public void testTheTopItemOfAQueueIsTheFirstItemAddedToTheQueue(){
+    public void testTheTopItemOfAQueueIsTheFirstItemAddedToTheQueue() {
         Queue<String> queue = new OneLineQueue<>();
         String firstItem = "firstItem";
         queue.add(firstItem);
@@ -59,7 +59,7 @@ public class QueueTests {
     }
 
     @Test
-    public void testRemovingAnItemFromAQueueWithOneItemEmptiesTheQueue(){
+    public void testRemovingAnItemFromAQueueWithOneItemEmptiesTheQueue() {
         Queue<String> queue = new OneLineQueue<>();
         String firstItem = "firstItem";
         queue.add(firstItem);
@@ -68,46 +68,46 @@ public class QueueTests {
     }
 
     @Test
-    public void testRemovingAnItemFromAQueueDecreasesItsSizeByOne(){
+    public void testRemovingAnItemFromAQueueDecreasesItsSizeByOne() {
         Queue<String> queue = new OneLineQueue<>();
         int numberOfItems = 5;
-        for (int i = 1; i <= numberOfItems; i++ ){
+        for (int i = 1; i <= numberOfItems; i++ ) {
             queue.add(Integer.toString(i));
         }
-        for (int i = 1; i <= numberOfItems ; i++ ){
+        for (int i = 1; i <= numberOfItems ; i++ ) {
             queue.remove();
             assertEquals(numberOfItems - i, queue.size());
         }
     }
 
     @Test
-    public void testQueueHasAFIFOStructure(){
+    public void testQueueHasAFifoStructure() {
         Queue<String> queue = new OneLineQueue<>();
 
         int numberOfItems = 8;
         String[] expectedItems = new String[numberOfItems];
 
-        for (int i = 1; i <= numberOfItems; i++ ){
+        for (int i = 1; i <= numberOfItems; i++ ) {
             String index = Integer.toString(i);
             queue.add(index);
-            expectedItems[i-1] = index;
+            expectedItems[i - 1] = index;
         }
 
-        for (int i = 1; i <= numberOfItems; i++ ){
-            assertEquals(expectedItems[i-1], queue.top());
+        for (int i = 1; i <= numberOfItems; i++ ) {
+            assertEquals(expectedItems[i - 1], queue.top());
             queue.remove();
 
         }
     }
 
     @Test (expected = AssertionError.class)
-    public void testGettingTheTopItemOfAnEmptyQueueThrowsAssertionError(){
+    public void testGettingTheTopItemOfAnEmptyQueueThrowsAssertionError() {
         Queue<String> queue = new OneLineQueue<>();
         queue.top();
     }
 
     @Test (expected = AssertionError.class)
-    public void testRemovingAnItemFromAnEmptyQueueThrowsAssertionError(){
+    public void testRemovingAnItemFromAnEmptyQueueThrowsAssertionError() {
         Queue<String> queue = new OneLineQueue<>();
         queue.remove();
     }
